@@ -5,24 +5,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class HomePage extends BbcPage {
     public static final String URL = "http://www.bbc.com/";
-    private WebDriver driver;
 
-    @FindBy(linkText = "Sport")
-    private WebElement sport;
+    @FindBy(className = "module__title")
+    private WebElement welcome;
 
-
-    public HomePage(WebDriver driver){
-        this.driver = driver;
+    public HomePage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public void goTo(){
+    public void goTo() {
         driver.get(URL);
     }
 
-    public void navigateToSport(){
-        sport.click();
+    public boolean isWelcomeDisplayed() {
+        return welcome.isDisplayed();
+    }
+
+    public String getWelcomeText() {
+        return welcome.getText();
     }
 }

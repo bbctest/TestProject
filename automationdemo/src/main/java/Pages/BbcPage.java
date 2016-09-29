@@ -1,9 +1,11 @@
 package Pages;
 
-public abstract class BbcPage {
-    String Url;
+import org.openqa.selenium.WebDriver;
 
-    public boolean isAt(){
-        return true;
+public abstract class BbcPage {
+    protected WebDriver driver;
+
+    public BbcPage(WebDriver driver) {
+        this.driver = driver;
     }
 }

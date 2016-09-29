@@ -1,10 +1,7 @@
 package Context;
 
-import cucumber.api.CucumberOptions;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.junit.Cucumber;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -30,6 +27,7 @@ public class DriverContext {
     public void tearDown() throws Exception {
         if (initialized) {
             driver.quit();
+            initialized = false;
         }
     }
 
